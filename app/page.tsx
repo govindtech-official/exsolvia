@@ -1,49 +1,101 @@
-import Hero from "./components/hero";
-import About from "./components/about";
-import Products from "./components/products";
-import Innovations from "./components/innovations";
-import Team from "./components/team";
-import ApplyNow from "./components/applyNow";
-import Image from "next/image";
-import heroImage from "../assets/hero-campus-tech.jpg";
-import styles from "./components/styles/comingSoon.module.scss";
+"use client";
 
-function LandingContent() {
-  return (
-    <>
-      <Hero />
-      <About />
-      <Products />
-      <Innovations />
-      <Team />
-      <ApplyNow />
-    </>
-  );
-}
-
-function ComingSoon() {
-  return (
-    <section className={styles.comingSoon}>
-      <div className={styles.imageWrapper}>
-        <Image src={heroImage} alt="" fill priority className={styles.image} />
-        <div className={styles.overlay} />
-      </div>
-
-      <div className={styles.content}>
-        <p className={styles.kicker}>EXSOLVIA</p>
-        <h1 className={styles.title}>Coming soon</h1>
-        <p className={styles.subtitle}>
-          We’re working on something new. Check back shortly.
-        </p>
-        <div className={styles.accent} aria-hidden="true" />
-      </div>
-    </section>
-  );
-}
+import styles from "./page.module.scss";
 
 export default function Home() {
-  // Keep the original landing content in the codebase, but don't show it.
-  // Flip this to `true` later if you want to restore the full landing page.
-  const showLanding = false;
-  return showLanding ? <LandingContent /> : <ComingSoon />;
+  return (
+    <main className={styles.page}>
+
+    
+      <nav className={styles.navbar}>
+        <h2 className={styles.logo}>Exsolvia</h2>
+
+        <ul className={styles.menu}>
+          <li>Product</li>
+          <li>Solutions</li>
+          <li>Company</li>
+          <li>Contact</li>
+        </ul>
+
+        <button className={styles.primaryBtn}>
+          Get Started
+        </button>
+      </nav>
+
+     
+      <section className={styles.hero}>
+
+        <div className={styles.heroText}>
+          <h1>
+            One Platform. <br />
+            Endless Growth.
+          </h1>
+
+          <p>
+            Manage talent, content, and innovation
+            with Exsolvia’s all-in-one workspace.
+          </p>
+
+          <div className={styles.heroButtons}>
+            <button className={styles.primaryBtn}>
+              Start Free
+            </button>
+
+            <button className={styles.secondaryBtn}>
+              View Demo
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.heroImage}>
+          <div className={styles.mockup}>
+            Exsolvia Dashboard
+          </div>
+        </div>
+
+      </section>
+
+      
+      <section className={styles.features}>
+
+        <h2>Built for Modern Teams</h2>
+
+        <div className={styles.featureGrid}>
+
+          <div className={styles.featureCard}>
+            <h3>Smart Hiring</h3>
+            <p>Track applications in one place.</p>
+          </div>
+
+          <div className={styles.featureCard}>
+            <h3>Content Engine</h3>
+            <p>Manage blogs and media easily.</p>
+          </div>
+
+          <div className={styles.featureCard}>
+            <h3>Team Hub</h3>
+            <p>Collaborate and grow faster.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      
+      <section className={styles.cta}>
+        <h2>Start Building Today</h2>
+        <p>Join hundreds of teams using Exsolvia.</p>
+
+        <button className={styles.primaryBtn}>
+          Create Account
+        </button>
+      </section>
+
+      {/* Footer */}
+      <footer className={styles.footer}>
+        © {new Date().getFullYear()} Exsolvia
+      </footer>
+
+    </main>
+  );
 }
